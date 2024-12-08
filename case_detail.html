@@ -1,0 +1,74 @@
+<!--
+ * @Author: IvanLiu
+ * @LastEditors: IvanLiu
+ * @Date: 2024-11-15 09:45:27
+ * @LastEditTime: 2024-11-26 15:37:46
+ * @Descripttion: 
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title id="label_title">New Page</title>
+        <link rel="stylesheet" type="text/css" href="detail.css">
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <script>
+            //跳回前一页
+            function goBack() {
+                window.history.back(); // 使用history对象的back方法来返回上一个页面
+            }
+        </script>
+    </head>
+    <body>
+        <div id="top_bar">
+            <a href="https://cse.csu.edu.cn/index.htm" ><img src="./img/logo.png" style="width: 22vw; height: auto;"></a>
+        </div>
+        <div id = "main_body">
+            <div id="img_banner_detail">
+                <img src="./img/banner.jpg" style="width: 100%; height: auto;">
+            </div>
+            <div id="theme_bar">
+                <div id="back_bar">
+                    <div id="back_button" onclick="goBack()">
+                        <p style="font-size: 0.9vw; font-weight: bold;">＜</p>
+                        <p style="font-size: 0.9vw;">返回</p>
+                    </div>
+                </div>
+                <div id="theme">
+                    <p style="font-size: 1.5vw; color: #000000;">案例学习</p>
+                </div>
+                <div id="theme_line">
+                    <div style="width: 10%; height: 0.2vh; background-color: #0252A7;"></div>
+                    <div style="width: 90%; height: 0.1vh; background-color: #EEE9E9;"></div>
+                </div>
+            </div>
+            <div id="text_area">
+                <div class = "case_title">
+                    <p style="font-size: 2vw; font-weight: bold;line-height: 2; margin: 0; padding: 0; margin-top: 2vh;" id="case_title_txt"></p>
+                </div>
+                <div class = "case_title">
+                    <p style="font-size: 1.2vw; color: grey; line-height: 2; margin: 0; padding: 0;" id="case_properties_txt"></p>
+                </div>
+                <div class = "full_text">
+                    <p style="font-size: 1.2vw;" id="case_full_text_txt"></p>
+                </div>
+                <!--占位空白区-->
+                <div style="height: 50vh; width: 100%;"></div>
+            </div>
+            
+        </div>
+    
+        <!--读取页面跳转信息更新页面-->
+        <script>
+            var title_txt = localStorage.getItem("case_title");
+            var properties_txt = localStorage.getItem("case_properties");
+            var full_txt = localStorage.getItem("case_full_text");
+
+
+            document.getElementById('label_title').textContent = title_txt;
+            document.getElementById('case_title_txt').textContent = title_txt;
+            document.getElementById('case_properties_txt').textContent = '事件性质：' + properties_txt;
+            document.getElementById('case_full_text_txt').textContent = full_txt;
+        </script>
+    </body>
+</html>
